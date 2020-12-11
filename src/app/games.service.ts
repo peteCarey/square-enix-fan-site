@@ -7,8 +7,8 @@ import { Game } from './game';
 @Injectable({ providedIn: 'root' })
 export class GameService {
   private data: any = [];
-  private gamesUrl =
-    'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132'; // URL to web api
+  private gamesUrl = 'https://api.rawg.io/api/games';
+  // 'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -19,7 +19,9 @@ export class GameService {
   getData() {
     this.http.get(this.gamesUrl).subscribe((res) => {
       this.data = res;
-      console.log(this.data);
+      // console.log(this.data);
+      //console.log(Object.values(res));
+      console.log(this.data.results[0]);
     });
   }
 
