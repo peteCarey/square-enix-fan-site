@@ -5,16 +5,15 @@
   <button (click)="getData()">Fetch Data</button>
 </div>
 <h3>
-  <!-- {{ results[0] }} -->
+  <h3>{{ this.data.results[0]["released"] }}</h3>
 </h3>
-<!--The code to display images -->
-<div *ngFor="let image of data" style="text-align: center">
-  <h3>
-    {{ results.name }}
-  </h3>
-  <img width="200" alt="shortScreenshots" [src]="results.background_image" />
-</div>
 
+<div *ngFor="let item of data" style="text-align: center">
+  <div>
+    <h3>{{ game.released] }}</h3>
+    <!--<img width="200" alt="shortScreenshots" [src]="results.background_image" />-->
+  </div>
+  
 <ul class="games">
   <li
     *ngFor="let game of game"
@@ -28,27 +27,17 @@
       <span><img src="{{ game.imageUrl }}" style="width: 100%" /></span>
       <br />
       <div class="text-block">
-        <span>{{ game.platform }}</span
+        <span>{{ this.data.results[name] }}</span
         ><br />
-        <span>{{ game.releaseDate }}</span
+        <span>{{ this.data.results[released] }}</span
         ><br />
-        <span>{{ game.genre }}</span
+        <span>{{ this.data.results[genre] }}</span
         ><br />
-        <span>{{ game.thumbRating }}</span
+        <span>{{ this.data.results[name]thumbRating }}</span
         ><br />
       </div>
     </div>
   </li>
 </ul>
-
-<div *ngIf="selectedGame">
-  <h2>{{ selectedGame.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedGame.id }}</div>
-  <div><span>image: </span>{{ selectedGame.imageUrl }}</div>
-  <div>
-    <label
-      >name:
-      <input [(ngModel)]="selectedGame.name" placeholder="name" />
-    </label>
-  </div>
+</div>
 </div>
