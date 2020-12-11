@@ -17,12 +17,17 @@ export class GameService {
   constructor(private http: HttpClient) {}
 
   getData() {
-    this.http.get(this.gamesUrl).subscribe((res) => {
+    /* this.http.get(this.gamesUrl).subscribe((res) => {
       this.data = res;
-      // console.log(this.data);
-      //console.log(Object.values(res));
-      console.log(this.data.results[0]);
-    });
+      console.log(this.data.results[0]['released']);
+      console.table(this.data.results);
+    }); */
+    return this.http.get<GameResponse>(this.gamesUrl).pipe(
+      map((response) => {
+        console.log(response);
+        return response.Game;
+      })
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -33,4 +38,18 @@ export class GameService {
       return of(result as T);
     };
   }
+}
+/*
+interface Game {
+  id: number;
+  name: string;
+  imageUrl: string;
+  platform: string;
+  releaseDate: string;
+  genre: string;
+  thumbRating: number;
+}
+*/
+interface GameResponse {
+  Game: Game[];
 }

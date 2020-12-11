@@ -16,7 +16,10 @@ export class GamesComponent implements OnInit {
   ngOnInit() {
     this.getData();
   }
-  getData(): void {
-    this.gameService.getData();
+  getData() {
+    this.gameService.getData().subscribe((Game) => {
+      this.games = Game;
+      console.info(this.games);
+    });
   }
 }
