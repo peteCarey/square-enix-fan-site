@@ -17,11 +17,6 @@ export class GameService {
   constructor(private http: HttpClient) {}
 
   getData() {
-    /* this.http.get(this.gamesUrl).subscribe((res) => {
-      this.data = res;
-      console.log(this.data.results[0]['released']);
-      console.table(this.data.results);
-    }); */
     return this.http.get<GameResponse>(this.gamesUrl).pipe(
       map((response) => {
         console.log(response);
@@ -39,17 +34,7 @@ export class GameService {
     };
   }
 }
-/*
-interface Game {
-  id: number;
-  name: string;
-  imageUrl: string;
-  platform: string;
-  releaseDate: string;
-  genre: string;
-  thumbRating: number;
-}
-*/
+
 interface GameResponse {
   Game: Game[];
 }
