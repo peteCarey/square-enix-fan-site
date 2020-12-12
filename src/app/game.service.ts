@@ -16,15 +16,23 @@ export class GameService {
 
   constructor(private http: HttpClient) {}
 
-  getData() {
-    return this.http.get<GameResponse>(this.gamesUrl).pipe(
+  getGames(): Observable<Game[]> {
+    return this.http.get<Game[]>(this.gamesUrl).pipe(
+      tap((_) => console.log('fetched heroes')),
+      catchError(this.handleError<Game[]>('getHeroes', []))
+    );
+  }
+  /*
+  getData(id: number): Observable<Game> {
+    const url = '${this.gamesUrl}/${id};';
+    return this.http.get<Game[]>(this.gamesUrl).pipe(
       map((response) => {
         console.log(response);
         return response.Game;
       })
     );
   }
-
+*/
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // console.log to console instead
@@ -34,7 +42,8 @@ export class GameService {
     };
   }
 }
-
-interface GameResponse {
+/*
+interface Game {
   Game: Game[];
 }
+*/
