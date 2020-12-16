@@ -1,49 +1,56 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Game } from './game';
 
 @Injectable({ providedIn: 'root' })
 export class GameService {
-  private data: any = [];
-  private gamesUrl = 'https://api.rawg.io/api/games';
+  //private gamesUrl = 'http://echo.jsontest.com/key/value/one/two';
+  private gamesUrl =
+    'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&platforms?genres?name';
   // 'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132'; // URL to web api
-
+  /*
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
+*/
+  constructor(private http: HttpClient) {
+    // this.getGames();
+  }
 
-  constructor(private http: HttpClient) {}
-
+  /*
   getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesUrl).pipe(
-      tap((_) => console.log('fetched heroes')),
-      catchError(this.handleError<Game[]>('getHeroes', []))
+      tap((_) => console.log('fetched games')),
+      catchError(this.handleError<Game[]>('getGames', []))
     );
+  */
+  games: any = [];
+  getGames() {
+    return this.http
+      .get(this.gamesUrl)
+      .toPromise()
+      .then((data) => {
+        console.log(data);
+        let res = data;
+        console.log(typeof 'data');
+        // games: Game[] = data;
+        console.log(data['results'][0].name);
+
+        for (let key in data)
+          if (data.hasOwnProperty(key)) this.games.push(data[key]);
+        this.games.push(data);
+      });
+    console.log('Game is ' + this.games);
+    // document.getElementById('demo').innerHTML = this.items;
   }
-  /*
-  getData(id: number): Observable<Game> {
-    const url = '${this.gamesUrl}/${id};';
+
+  /*  getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesUrl).pipe(
-      map((response) => {
-        console.log(response);
-        return response.Game;
-      })
+      tap((_) => console.log('fetched games')),
+      catchError(this.handleError<Game[]>('getGames', []))
     );
-  }
-*/
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error); // console.log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+    */
 }
-/*
-interface Game {
-  Game: Game[];
-}
-*/

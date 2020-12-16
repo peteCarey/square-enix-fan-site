@@ -2,11 +2,26 @@
 
 <div style="text-align: center">
   <h1>Welcome!</h1>
-  <button (click)="getGames()">Fetch Data</button>
+  <!-- <button (click)="getGames()">Fetch Data</button> -->
 </div>
-
-<ul class="games">
-  <li *ngFor="let game of games">
-    <span class="badge">{{ game.id }}</span> {{ game.name }}
-  </li>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Platforms</th>
+      <th>Genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games" ; let i="index">
+      <td>{{ game.results[i].name }}</td>
+      <td>{{ game.results[i].background_image }}</td>
+      <td>{{ game.results[i].platforms }}</td>
+      <td>{{ game.results[i].genres }}</td>
+    </tr>
+  </tbody>
+</table>
+<div><h1>in the first div</h1></div>
+<p id="demo"></p>
+<div *ngFor="let game of games">{{ game.name }}</div>
