@@ -2,42 +2,26 @@
 
 <div style="text-align: center">
   <h1>Welcome!</h1>
-  <button (click)="getData()">Fetch Data</button>
+  <!-- <button (click)="getGames()">Fetch Data</button> -->
 </div>
-<h3>
-  <h3>{{ this.data.results[0]["released"] }}</h3>
-</h3>
-
-<div *ngFor="let item of data" style="text-align: center">
-  <div>
-    <h3>{{ game.released] }}</h3>
-    <!--<img width="200" alt="shortScreenshots" [src]="results.background_image" />-->
-  </div>
-  
-<ul class="games">
-  <li
-    *ngFor="let game of game"
-    [class.selected]="game === selectedGame"
-    (click)="onSelect(game)"
-  >
-    <div class="container">
-      <span class="badge">{{ game.id }}</span>
-      <span>{{ game.name }}</span
-      ><br />
-      <span><img src="{{ game.imageUrl }}" style="width: 100%" /></span>
-      <br />
-      <div class="text-block">
-        <span>{{ this.data.results[name] }}</span
-        ><br />
-        <span>{{ this.data.results[released] }}</span
-        ><br />
-        <span>{{ this.data.results[genre] }}</span
-        ><br />
-        <span>{{ this.data.results[name]thumbRating }}</span
-        ><br />
-      </div>
-    </div>
-  </li>
-</ul>
-</div>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Platforms</th>
+      <th>Genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games" ; let i="index">
+      <td>{{ game.results[i].name }}</td>
+      <td>{{ game.results[i].background_image }}</td>
+      <td>{{ game.results[i].platforms }}</td>
+      <td>{{ game.results[i].genres }}</td>
+    </tr>
+  </tbody>
+</table>
+<div><h1>in the first div</h1></div>
+<p id="demo"></p>
+<div *ngFor="let game of games">{{ game.name }}</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { Game } from '../game';
-import { GameService } from '../games.service';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-games',
@@ -11,15 +11,32 @@ import { GameService } from '../games.service';
 export class GamesComponent implements OnInit {
   games: Game[];
 
-  constructor(private http: HttpClient, private gameService: GameService) {}
+  constructor(private gameService: GameService) {}
 
-  ngOnInit() {
-    this.getData();
+  ngOnInit(): void {
+    this.getGames();
   }
-  getData() {
-    this.gameService.getData().subscribe((Game) => {
-      this.games = Game;
-      console.info(this.games);
-    });
+
+  getGames(): void {
+    // this.gameService.getGames().subscribe((games) => (this.games = games));
+    this.gameService.getGames();
+    console.log(this.gameService.games);
+
+    let fruits = [];
+    fruits = this.gameService.games.slice(3, 4);
+    console.info(fruits);
   }
+
+  // items = [];
+  /* getGames(): void {
+    this.gameService.getGames();
+    this.items.push(this.gameService);
+    console.info(this.items);
+  }
+ */
+  /*  getGames(): void {
+    this.gameService.getGames().subscribe((games) => games);
+    console.info(this.gameService);
+  }
+*/
 }
