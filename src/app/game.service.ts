@@ -28,6 +28,7 @@ export class GameService {
     );
   */
   games: any = [];
+
   getGames() {
     return this.http
       .get(this.gamesUrl)
@@ -38,13 +39,25 @@ export class GameService {
         console.log(typeof 'data');
         // games: Game[] = data;
         console.log(data['results'][0].name);
-
+        console.log(data['results'][0].background_image);
+        console.log(data['results'][0].genres[0].name);
+        console.log(data['results'][0].released);
+        console.log(data['results'][0].platforms[0].platform.name);
+        console.log(data['results'][0].rating);
         for (let key in data)
           if (data.hasOwnProperty(key)) this.games.push(data[key]);
         this.games.push(data);
+        /*
+        const data : Game = {
+          name: this.data['results'][0].name,
+          image_background: data['results'][0].background_image,
+          platform: data['results'][0].platforms[0].platform.name,
+          released: data['results'][0].released,
+          genre: data['results'][0].genres[0].name,
+          rating: data['results'][0].rating,
+        };
+        */
       });
-    console.log('Game is ' + this.games);
-    // document.getElementById('demo').innerHTML = this.items;
   }
 
   /*  getGames(): Observable<Game[]> {
