@@ -47,16 +47,16 @@ export class GameService {
         for (let key in data)
           if (data.hasOwnProperty(key)) this.games.push(data[key]);
         this.games.push(data);
-        /*
-        const data : Game = {
-          name: this.data['results'][0].name,
+
+        const enix: Game = {
+          name: data['results'][0].name,
           image_background: data['results'][0].background_image,
           platform: data['results'][0].platforms[0].platform.name,
           released: data['results'][0].released,
           genre: data['results'][0].genres[0].name,
           rating: data['results'][0].rating,
         };
-        */
+        console.log('enix is ' + JSON.stringify(enix));
       });
   }
 

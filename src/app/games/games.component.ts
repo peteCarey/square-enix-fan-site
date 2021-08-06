@@ -14,6 +14,7 @@ export class GamesComponent implements OnInit {
   constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
+    this.gameService.getGames();
     this.getGames();
   }
 
@@ -21,6 +22,7 @@ export class GamesComponent implements OnInit {
     // this.gameService.getGames().subscribe((games) => (this.games = games));
     this.gameService.getGames();
     console.log(this.gameService.games);
+    //console.log(this.gameService.enix.platform)
 
     let fruits = [];
     fruits = this.gameService.games.slice(3, 4);
