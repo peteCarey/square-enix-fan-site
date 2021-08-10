@@ -19,7 +19,7 @@
       <li>{{game.count}}</li>
     </ul>
   -->
-   <!--
+<!--
     <tr *ngFor="let vals of val"; let i="index">
       [vals]="vals"
       <td>{{ vals.results[i].name }}</td>
@@ -35,16 +35,10 @@
 <div *ngFor="let game of games">{{ game.name }}</div>-->
 <div>
   <h3>Products</h3>
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let game of games">
-      <div class="card">
-        <div class="card-body">
-          <a href="#" class="btn btn-primary">{{ game.id }}</a>
-          <a href="#" class="btn btn-primary">{{ game.name }}</a>
-          <a href="#" class="btn btn-primary">{{ game.age }}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+  <ul *ngFor="let game of games">
+    <li>{{ game.id }}</li>
+    <li>{{ game.name }}</li>
+    <li>{{ game.age }}</li>
+  </ul>
+</div>

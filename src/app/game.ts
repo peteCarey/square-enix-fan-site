@@ -1,7 +1,8 @@
 export interface IGame {
-  id: number,
-  name: string,
-  age: number
+  id: number;
+  name: string;
+  age: number;
+
   /*
   name: string;
   image_background: string;
@@ -13,5 +14,5 @@ export interface IGame {
 }
 
 //interface GameResponse {
-  //game:IGame[];
+//game:IGame[];
 //}

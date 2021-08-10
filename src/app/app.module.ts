@@ -1,16 +1,14 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { HttpClientModule } from '@angular/common/http';
-
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GamesComponent } from './games/games.component';
-
+import { GameService } from './game.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule],
   declarations: [AppComponent, GamesComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, HttpClientModule],
+  providers: [GameService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
