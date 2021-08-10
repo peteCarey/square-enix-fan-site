@@ -34,11 +34,15 @@
 <p id="demo"></p>
 <div *ngFor="let game of games">{{ game.name }}</div>-->
 <div>
-  <h3>Products</h3>
+  <h2>Products</h2>
 
-  <ul *ngFor="let game of games">
+  <ul *ngFor="let game of games.results">
     <li>{{ game.id }}</li>
     <li>{{ game.name }}</li>
-    <li>{{ game.age }}</li>
+    <li>{{ game.image_background }}</li>
+    <li>{{ game.platform }}</li>
+    <li>{{ game.released }}</li>
+    <li>{{ game.genre }}</li>
+    <li>{{ game.rating }}</li>
   </ul>
 </div>

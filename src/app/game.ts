@@ -3,14 +3,12 @@ export interface IGame {
   name: string;
   age: number;
 
-  /*
-  name: string;
+  // name: string;
   image_background: string;
   platform: string;
   released: string;
   genre: string;
   rating: number;
-  */
 }
 
 //interface GameResponse {
