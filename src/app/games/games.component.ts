@@ -1,44 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Game } from '../game';
+import { IGame } from '../game';
 import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
-  styleUrls: ['./games.component.css'],
+  styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
-  games: Game[];
+   public games = [];
+  // games = [];
+  constructor(private _gameService: GameService) {}
 
-  constructor(private gameService: GameService) {}
-
-  ngOnInit(): void {
-    this.gameService.getGames();
-    this.getGames();
-  }
-
-  getGames(): void {
-    // this.gameService.getGames().subscribe((games) => (this.games = games));
-    this.gameService.getGames();
-    console.log(this.gameService.games);
-    //console.log(this.gameService.enix.platform)
-
-    let fruits = [];
-    fruits = this.gameService.games.slice(3, 4);
-    console.info(fruits);
-  }
-
-  // items = [];
-  /* getGames(): void {
-    this.gameService.getGames();
-    this.items.push(this.gameService);
-    console.info(this.items);
-  }
- */
-  /*  getGames(): void {
-    this.gameService.getGames().subscribe((games) => games);
-    console.info(this.gameService);
-  }
-*/
+  ngOnInit() {
+  //  this._gameService.getGames()
+  //    .subscribe(data => console.log(data));
+      
+      
+    this._gameService.getGames()
+      .subscribe(data => this.games = data);
+      console.log(this.games);
+    /*  this.games = this.gameService.getGames();
+    console.info(this.games);*/
+  }  
 }

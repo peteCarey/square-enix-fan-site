@@ -1,27 +1,50 @@
-<h2>My Games</h2>
+<!--<h2>My Games</h2>
 
 <div style="text-align: center">
-  <h1>Welcome!</h1>
-  <!-- <button (click)="getGames()">Fetch Data</button> -->
+  <h1>Welcome All!</h1>
+ <button (click)="getGames()">Fetch Data</button> 
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th>{{ enix.name }}</th>
+      <th>value</th>
       <th>Platforms</th>
       <th>Genres</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let game of games" ; let i="index">
-      <td>{{ game.results[i].name }}</td>
+  <tbody>List
+     
+    <ul *ngFor = "let game of games">
+      <li>{{game.count}}</li>
+    </ul>
+  -->
+   <!--
+    <tr *ngFor="let vals of val"; let i="index">
+      [vals]="vals"
+      <td>{{ vals.results[i].name }}</td>
       <td>{{ game.results[i].background_image }}</td>
       <td>{{ game.results[i].platforms }}</td>
       <td>{{ game.results[i].genres }}</td>
     </tr>
+    
   </tbody>
 </table>
 <div><h1>in the first div</h1></div>
 <p id="demo"></p>
-<div *ngFor="let game of games">{{ game.name }}</div>
+<div *ngFor="let game of games">{{ game.name }}</div>-->
+<div>
+  <h3>Products</h3>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let game of games">
+      <div class="card">
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">{{ game.id }}</a>
+          <a href="#" class="btn btn-primary">{{ game.name }}</a>
+          <a href="#" class="btn btn-primary">{{ game.age }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

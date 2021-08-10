@@ -1,24 +1,47 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Game } from './game';
+import { map, catchError } from 'rxjs/operators';
+import { Observable,throwError } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+import { IGame } from './game';
+
+
+@Injectable({
+  providedIn: 'root',
+})
+
 export class GameService {
-  //private gamesUrl = 'http://echo.jsontest.com/key/value/one/two';
-  private gamesUrl =
-    'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&platforms?genres?name';
-  // 'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132'; // URL to web api
-  /*
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
-*/
-  constructor(private http: HttpClient) {
-    // this.getGames();
+  private _url:string = "/assets/data/games.json";
+  //private gamesUrl:string = 
+//  'https://hplussport.com/api/products'
+ //'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&platforms?genres?name';
+   //'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132'; 
+  // 'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&dates=2010-01-01,2020-12-31&developers=4132'
+  constructor(private http: HttpClient) {}
+
+  getGames(): Observable<IGame[]> {
+    console.log(this.http.get<IGame[]>(this._url));
+    return this.http.get<IGame[]>(this._url);
+    
   }
+/*
+  getGames(): Observable<IGame[]> {
+   
+      return this.http.get<IGame[]>(this.gamesUrl)
+       /* .pipe}(map(response: IGame =>  
+        return response.game;
+        )),
+        
+      .pipe(catchError(this.handleError)); 
+    }
+*/
+  
+  private handleError(error: HttpErrorResponse) {
+    console.log(error.message);
+    return throwError('A data error occurred, please try again.');
+  }
+ 
 
   /*
   getGames(): Observable<Game[]> {
@@ -26,9 +49,11 @@ export class GameService {
       tap((_) => console.log('fetched games')),
       catchError(this.handleError<Game[]>('getGames', []))
     );
-  */
+  
   games: any = [];
-
+*/
+  
+/*
   getGames() {
     return this.http
       .get(this.gamesUrl)
@@ -59,11 +84,12 @@ export class GameService {
         console.log('enix is ' + JSON.stringify(enix));
       });
   }
-
+*/
   /*  getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.gamesUrl).pipe(
       tap((_) => console.log('fetched games')),
       catchError(this.handleError<Game[]>('getGames', []))
     );
     */
+
 }
