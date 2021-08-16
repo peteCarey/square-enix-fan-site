@@ -8,11 +8,9 @@ import { IGame } from './game';
 
 @Injectable()
 export class GameService {
-  private _url: string = '/assets/data/rawg.json';
-
-  // 'https://hplussport.com/api/products'
-  // 'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&platforms?genres?name';
-  // 'https://api.rawg.io/api/games?dates=2010-01-01,2020-12-31&developers=4132';
+  //private _url: string = '/assets/data/rawg.json';
+  private _url: string =
+    'https://api.rawg.io/api/games?key=492f4f2d8c064de5a3a0f29205cca636&platforms?genres?name';
 
   constructor(private http: HttpClient) {}
 
