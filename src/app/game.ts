@@ -1,16 +1,7 @@
 export interface IGame {
-  id: number;
-  name: string;
-  age: number;
-
-  // name: string;
-  image_background: string;
+  background_image: string;
   platform: string;
   released: string;
-  genre: string;
+  genres: string[];
   rating: number;
 }
-
-//interface GameResponse {
-//game:IGame[];
-//}
