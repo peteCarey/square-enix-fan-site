@@ -1,9 +1,7 @@
-export interface Game {
-  id: number;
-  name: string;
-  image_background: string;
+export interface IGame {
+  background_image: string;
   platform: string;
   released: string;
-  genre: string;
+  genres: string[];
   rating: number;
 }

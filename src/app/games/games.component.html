@@ -1,27 +1,44 @@
-<h2>My Games</h2>
+<header>
+  <div class="content-wrap">
+    <h2>Games</h2>
+  </div>
+</header>
+<section class="game-card">
+  <div class="flex-item">
+    <ul class="gameDetails" *ngFor="let game of games.results">
+      <li *ngIf="game.background_image">
+        <img src="{{ game.background_image }}" alt="game" />
+      </li>
+      <li *ngIf="game.id">id: {{ game.id }}</li>
+      <li *ngIf="game.name">Name: {{ game.name }}</li>
+      <li *ngIf="game.platform">Platform: {{ game.platform }}</li>
+      <li *ngIf="game.released">Released: {{ game.released }}</li>
+      <li *ngIf="game.rating">Rating:{{ game.rating }}</li>
+      <li *ngIf="game.genres">
+        Genres:
+        <div class="genres" *ngFor="let genre of game.genres">
+          <span *ngIf="genre.name">{{ genre.name }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <div class="content-wrap">
+    <h2>Let's Keep in Touch!</h2>
 
-<div style="text-align: center">
-  <h1>Welcome!</h1>
-  <!-- <button (click)="getGames()">Fetch Data</button> -->
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th>Platforms</th>
-      <th>Genres</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let game of games" ; let i="index">
-      <td>{{ game.results[i].name }}</td>
-      <td>{{ game.results[i].background_image }}</td>
-      <td>{{ game.results[i].platforms }}</td>
-      <td>{{ game.results[i].genres }}</td>
-    </tr>
-  </tbody>
-</table>
-<div><h1>in the first div</h1></div>
-<p id="demo"></p>
-<div *ngFor="let game of games">{{ game.name }}</div>
+    <!-- Social media and contact links. Add or remove any networks. -->
+    <ul class="contact-list">
+      <li>
+        <a href="http://petercarey.co.uk" target="_blank">petercarey.co.uk</a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/peter-carey-a697aa37/"
+          target="_blank"
+          >LinkedIn</a
+        >
+      </li>
+    </ul>
+  </div>
+</footer>

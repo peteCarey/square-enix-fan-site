@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Game } from '../game';
+import { IGame } from '../game';
 import { GameService } from '../game.service';
 
 @Component({
@@ -9,34 +9,11 @@ import { GameService } from '../game.service';
   styleUrls: ['./games.component.css'],
 })
 export class GamesComponent implements OnInit {
-  games: Game[];
+  public games = [];
+  constructor(private _gameService: GameService) {}
 
-  constructor(private gameService: GameService) {}
-
-  ngOnInit(): void {
-    this.getGames();
+  ngOnInit() {
+    this._gameService.getGames().subscribe((data) => (this.games = data));
+    console.log(this.games);
   }
-
-  getGames(): void {
-    // this.gameService.getGames().subscribe((games) => (this.games = games));
-    this.gameService.getGames();
-    console.log(this.gameService.games);
-
-    let fruits = [];
-    fruits = this.gameService.games.slice(3, 4);
-    console.info(fruits);
-  }
-
-  // items = [];
-  /* getGames(): void {
-    this.gameService.getGames();
-    this.items.push(this.gameService);
-    console.info(this.items);
-  }
- */
-  /*  getGames(): void {
-    this.gameService.getGames().subscribe((games) => games);
-    console.info(this.gameService);
-  }
-*/
 }

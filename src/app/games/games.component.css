@@ -1,59 +1,129 @@
-/* gamesComponent's private CSS styles */
-.games {
-  margin: 0 0 2em 0;
-  list-style-type: none;
+/*
+COLOR PALETTE
+https://coolors.co/f7fff7-343434-2f3061-ffe66d-a1c6d7
+#F7FFF7 - almost white
+#343434 - dark gray - almost black
+#2F3061 - blue dark
+#FFE66D - yellow
+#A1C6D7 - blue light
+*/
+
+/* Global styles 
+-----------------------------*/
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  color: #000000;
+  margin: 0;
   padding: 0;
-  width: 24em;
-}
-.games li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #eee;
-  margin: 0.5em;
-  padding: 0.3em 0;
-  height: 10.6em;
-  border-radius: 4px;
-}
-.games li:hover {
-  color: #607d8b;
-  background-color: #ddd;
-  left: 0.1em;
-}
-.games li.selected {
-  background-color: #cfd8dc;
-  color: white;
-}
-.games li.selected:hover {
-  background-color: #bbd8dc;
-  color: white;
-}
-.games .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: 0.8em;
-  border-radius: 4px 0 0 4px;
-}
-/* Container holding the image and the text */
-.container {
-  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
 }
 
-/* Bottom right text */
-.text-block {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: black;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+img {
+  width: 400px;
+  border-radius: 10%;
+}
+
+a {
+  color: #ffe66d;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h2 {
+  margin: 0;
+}
+
+ul li {
+  margin: 5px;
+}
+
+.flex-item {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.content-wrap {
+  max-width: 800px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.content-wrap h2 {
+  color: #ffe66d;
+}
+
+/* Profile 
+-----------------------------*/
+header {
+  background: #2f3061;
+  color: #f7fff7;
+  text-align: center;
+}
+
+.game-card {
+  overflow: hidden;
+  border-bottom: 1px dashed #343434;
+  padding: 25px 0;
+}
+.game-card img {
+  float: left;
+  margin-right: 20px;
+}
+.game-card h3 {
+  margin-top: 0;
+}
+
+.game-card ul {
+  margin-top: 0;
+  width: 50%;
+}
+
+.gameDetails {
+  list-style-type: none;
+  padding: 0;
+}
+
+.work-experience {
+  background: #a1c6d7;
+}
+
+footer {
+  background: #343434;
+  color: #f7fff7;
+  text-align: center;
+}
+
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-list a {
+  padding: 15px;
+  display: inline-block;
+}
+
+.genres {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.genres span {
+  display: flex;
+  justify-content: space-evenly;
 }
