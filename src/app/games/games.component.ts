@@ -9,7 +9,7 @@ import { GameService } from '../game.service';
   styleUrls: ['./games.component.css'],
 })
 export class GamesComponent implements OnInit {
-  public games = [];
+  public games: any = [];
   constructor(private _gameService: GameService) {}
 
   ngOnInit() {

@@ -77,7 +77,7 @@ header {
 .game-card {
   overflow: hidden;
   border-bottom: 1px dashed #343434;
-  padding: 25px 25px 25px 25px;
+  padding: 25px 25px 25px 100px;
   background: grey;
 }
 .game-card img {
