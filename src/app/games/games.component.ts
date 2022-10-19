@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { IGame } from '../game';
 import { GameService } from '../game.service';
@@ -10,10 +11,13 @@ import { GameService } from '../game.service';
 })
 export class GamesComponent implements OnInit {
   public games: any = [];
-  constructor(private _gameService: GameService) {}
+  sub!: Subscription;
+  constructor(private gameService: GameService) {}
 
   ngOnInit() {
-    this._gameService.getGames().subscribe((data) => (this.games = data));
+    this.sub = this.gameService.getGames().subscribe({
+      next: (games) => (this.games = games),
+    });
     console.log(this.games);
   }
 }

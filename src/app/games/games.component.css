@@ -27,8 +27,11 @@ body {
 }
 
 img {
-  width: 400px;
+  max-width: 100%;
+  height: auto;
   border-radius: 10%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 a {
@@ -46,6 +49,11 @@ h2 {
 ul li {
   margin: 5px;
   color: #2f3061;
+  padding: 0.1rem;
+}
+
+p.game-id {
+  padding-top: 1rem;
 }
 
 .flex-item {
@@ -80,6 +88,7 @@ header {
   padding: 25px 25px 25px 100px;
   background: grey;
 }
+
 .game-card img {
   float: left;
   margin-right: 20px;
@@ -90,12 +99,12 @@ header {
 
 .game-card ul {
   margin-top: 0;
-  width: 50%;
+  width: 48%;
 }
 
-.gameDetails {
+.game-details {
   list-style-type: none;
-  padding: 0;
+  padding: 1rem;
 }
 
 .work-experience {
@@ -116,7 +125,7 @@ footer {
 }
 
 .contact-list a {
-  padding: 15px;
+  padding: 1.5rem;
   display: inline-block;
 }
 

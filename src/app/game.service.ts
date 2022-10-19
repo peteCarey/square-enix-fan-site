@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { map, catchError } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
 import { IGame } from './game';
@@ -15,8 +15,10 @@ export class GameService {
   constructor(private http: HttpClient) {}
 
   getGames(): Observable<IGame[]> {
-    console.log(this.http.get<IGame[]>(this._url));
-    return this.http.get<IGame[]>(this._url).pipe(catchError(this.handleError));
+    return this.http.get<IGame[]>(this._url).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

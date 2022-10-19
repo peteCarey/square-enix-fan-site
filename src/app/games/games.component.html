@@ -5,11 +5,13 @@
 </header>
 <section class="game-card">
   <div class="flex-item">
-    <ul class="gameDetails" *ngFor="let game of games.results">
+    <ul class="game-details" *ngFor="let game of games.results">
       <li *ngIf="game.background_image">
         <img src="{{ game.background_image }}" alt="game" />
       </li>
-      <li *ngIf="game.id">id: {{ game.id }}</li>
+      <li *ngIf="game.id">
+        <p class="game-id">id: {{ game.id }}</p>
+      </li>
       <li *ngIf="game.name">Name: {{ game.name }}</li>
       <li *ngIf="game.platform">Platform: {{ game.platform }}</li>
       <li *ngIf="game.released">Released: {{ game.released }}</li>
